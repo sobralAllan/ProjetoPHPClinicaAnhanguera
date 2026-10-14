@@ -28,7 +28,36 @@
         <input type="text" id="telefone" name="telefone"/><br><br>
 
         <label>Endereço: </label>
-        <input type="text" id="endereço" name="endereço"/><br><br>
+        <input type="text" id="endereço" name="endereco"/><br><br>
+
+        <button type="submit">Cadastrar
+        <?php
+            if(isset($_POST['codigo'])){
+                $codigo        = $_POST['codigo'];
+                $nome          = $_POST['nome'];
+                $telefone      = $_POST['telefone'];
+                $endereco      = $_POST['endereco'];
+                $salario       = $_POST['salario'];
+                $especialidade = $_POST['especialidade']; 
+
+                $vet = new Veterinario($codigo, $nome, $especialidade,
+                                    $salario, $endereco, $telefone);
+                $logico = true;
+            }else{
+                $logico = false;
+            }
+        ?>
+        </button>
+        <button><a href="#">Voltar</a></button>
+        <div>
+        <?php
+            if($logico==true){
+                echo $vet->imprimir();
+            }else{
+                echo "Preencha os campos";
+            }
+        ?>
+        </div>
     </form>
 </body>
 </html>
