@@ -19,6 +19,7 @@
     <title>Cadastro Veterinario</title>
 </head>
 <body>
+    <?php include('../componentes/cabecalho.php');?>
     <form method="POST">
         <label>Nome: </label>
         <input type="text" id="nome" name="nome"/><br><br>
@@ -53,7 +54,7 @@
             }
         ?>
         </button>
-        <button><a href="#">Voltar</a></button>
+        <button><a href="../index.php">Voltar</a></button>
         <div>
         <?php
             if(isset($_POST['nome'])){
